@@ -1,0 +1,205 @@
+/* General Styles */
+/* body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f9f9f9;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+} */
+
+/* Form Container */
+.course-container {
+  background-color: #ffffff;
+  /* width: 90%; */
+  max-width: 100%;
+  padding: 80px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Form Title */
+.form-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333333;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Form */
+.course-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Form Group */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.form-group label {
+  font-size: 14px;
+  font-weight: bold;
+  color: #555555;
+  margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group textarea {
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #cccccc;
+  border-radius: 5px;
+  width: 100%;
+  box-sizing: border-box;
+  outline: none;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 3px rgba(0, 123, 255, 0.5);
+}
+
+/* Description Fields */
+.description-field {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.array-field button {
+  padding: 5px 10px;
+  background-color: #ff4d4d;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.array-field button:hover {
+  background-color: #e60000;
+}
+
+.description-field input,
+.description-field textarea {
+  flex: 1;
+}
+
+.description-field button {
+  align-self: flex-end;
+  padding: 5px 10px;
+  background-color: #ff4d4d;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.description-field button:hover {
+  background-color: #e60000;
+}
+
+/* Array Fields */
+.array-field {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.array-field input {
+  flex: 1;
+}
+
+/* Add Item Buttons */
+/* General Button Styles */
+button[type="button"],
+.array-field button {
+  width: 150px; /* Ensures both buttons have the same width */
+  padding: 8px 12px;
+  font-size: 14px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  /* background-color: #28a745; */
+  /* color: #ffffff; */
+}
+
+.add-button {
+  background-color: #007BFF;
+  color: #fff;
+}
+
+.add-description-button {
+  background-color: #007BFF;
+  color: #fff;
+}
+
+.add-button:hover,
+.add-description-button:hover {
+  background-color: #0056b3;
+}
+
+/* Add Button Styles */
+/* button[type="button"] {
+  margin-top: 10px;
+  background-color: #28a745;
+  color: #ffffff;
+}
+
+button[type="button"]:hover {
+  background-color: #218838;
+} */
+
+/* Remove Button Styles */
+
+/* .description-field button{
+  background-color: #ff4d4d;
+} */
+
+/* .description-field button:hover{
+  background-color: #e60000;
+} */
+
+/* Submit Button */
+.submit-button {
+  padding: 12px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #ffffff;
+  background-color: #007BFF;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.submit-button:hover {
+  background-color: #0056b3;
+}
+
+.submit-button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+/* Status Messages */
+.error-message {
+  color: #ff4d4d;
+  font-size: 14px;
+  text-align: center;
+}
+
+.success-message {
+  color: #28a745;
+  font-size: 14px;
+  text-align: center;
+}

@@ -1,0 +1,81 @@
+
+.about-us {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 50px 20px;
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+    /* background: linear-gradient(to bottom, #f5e3e3, #dbeafe); */
+  }
+
+  .about-content {
+    max-width: 600px;
+    /* margin-bottom: 20px; */
+  }
+  
+  .heading {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #333;
+    transition: color 0.3s ease-in-out;
+  }
+  
+  .aboutus-description {
+    font-size: 1.1rem;
+    color: #444;
+    margin-bottom: 15px;
+  }
+  
+  .more-content {
+    font-size: 1.1rem;
+    color: #444;
+    margin-bottom: 15px;
+  }
+  
+  .btn {
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    background-color: #007BFF;
+    color: white;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+  }
+  
+  .btn:hover {
+    background-color: #0056b3;
+    color: #FFFFFF;
+  }
+  
+  .video-container {
+    width: 100%;
+    max-width: 600px;
+    margin-top: 20px;
+  }
+  
+  .about-video {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Desktop Layout */
+  @media (min-width: 1024px) {
+    .about-us {
+      flex-direction: row;
+      text-align: left;
+    }
+  
+    .about-content {
+      flex: 1;
+      margin-right: 30px;
+    }
+  
+    .video-container {
+      flex: 1;
+      margin-top: 0;
+    }
+  }
+  

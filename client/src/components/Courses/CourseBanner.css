@@ -1,0 +1,103 @@
+/* CourseSection.css */
+.course-section-container {
+  position: relative;
+  width: 100vw;
+  height: 50vh;
+}
+
+.course-section-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.course-section-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(43, 43, 45, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.course-section-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 1.5rem;
+  color: white;
+  text-align: center;
+}
+
+.course-section-subtitle {
+  color: #31b9eb;
+  margin-bottom: 1rem;
+  font-size: 1.75rem;
+  font-weight: 400;
+}
+
+.course-section-title {
+  font-weight: bold;
+  margin-bottom: 2rem;
+  max-width: 800px;
+  font-size: 3.5rem;
+  margin: 0 auto;
+}
+
+.course-section-description {
+  max-width: 600px;
+  margin: 0 auto 4rem;
+  font-size: 1.5rem;
+  color: #007bff;
+  font-weight: bold;
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);;
+}
+
+.course-section-button {
+  width: fit-content;
+  padding: 0.5rem 2rem;
+  font-size: 1.1rem;
+  background-color: #00b0ff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+  animation: enroll-btn-colorChange 3s infinite;
+}
+
+@keyframes enroll-btn-colorChange {
+  0%,
+  100% {
+    color: #ff6f61; /* Light Coral */
+    background-color: #1e272e; /* Dark Blue Gray */
+  }
+  20% {
+    color: #ffbb33; /* Neon Carrot */
+    background-color: #34495e; /* Dark Gray Blue */
+  }
+  40% {
+    color: #7ac142; /* Apple */
+    background-color: #2c3e50; /* Dark Slate Gray */
+  }
+  60% {
+    color: #3bafda; /* Picton Blue */
+    background-color: #2f3640; /* Dark Gray */
+  }
+  80% {
+    color: #d36280; /* French Rose */
+    background-color: #4b4b4b; /* Charcoal Gray */
+  }
+}
+.course-section-button:hover {
+  background-color: #007bff;
+}

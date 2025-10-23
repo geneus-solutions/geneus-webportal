@@ -1,0 +1,43 @@
+.course-content-learning {
+  position: relative;
+  /* right: 30%; */
+  left: 10%;
+  width: 100%;
+  height: 100vh;
+  background-color: #fff;
+  box-shadow: -2px 0 8px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  overflow-y: auto;
+  scrollbar-width: none;
+  transition: right 0.3s ease-in-out;
+}
+
+
+.course-content-learning h3 {
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+.course-content-learning ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.course-content-learning li {
+  padding: 10px;
+  width: 100%;
+  border-bottom: 1px solid #ddd;
+  cursor: pointer;
+  transition: background 0.2s ease-in-out;
+}
+
+.course-content-learning li:hover {
+  background-color: #f5f5f5;
+}
+
+.course-content-learning .active {
+  font-weight: bold;
+  color: #1abc9c;
+}
+
+

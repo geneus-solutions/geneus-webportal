@@ -1,0 +1,60 @@
+.payment-history-container {
+    max-width: 100%;
+  }
+
+  .payment-table-wrapper {
+    overflow-x: auto;
+  }
+  
+  .payment-table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #ddd;
+    background-color: #fff;
+}
+  
+  .payment-table th,
+  .payment-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border: 1px solid #ddd;
+  }
+  
+  .payment-table th {
+    background-color: #f4f6f9;
+    color: #333;
+  }
+  
+  .course-badge {
+    display: inline-block;
+    background-color: #3498db;
+    color: white;
+    padding: 4px 8px;
+    margin-right: 5px;
+    margin-top: 4px;
+    border-radius: 12px;
+    font-size: 12px;
+  }
+  
+  .status-success {
+    color: green;
+    font-weight: bold;
+  }
+  
+  .status-failed {
+    color: red;
+    font-weight: bold;
+  }
+  
+  @media (max-width: 600px) {
+    .payment-table th, .payment-table td {
+      font-size: 12px;
+      padding: 8px;
+    }
+  
+    .course-badge {
+      font-size: 10px;
+      padding: 3px 6px;
+    }
+  }
+  

@@ -1,0 +1,88 @@
+/* StockData.css */
+
+.stock-container {
+  padding: 30px;
+  max-width: 95%;
+  margin: auto;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.stock-container h2 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.stock-container h3 {
+  margin-top: 10px;
+}
+
+.target-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 0 10px;
+}
+
+.target-section input {
+  padding: 6px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  width: 80px;
+}
+
+.stock-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+.stock-table thead {
+  background-color: #f8f9fa;
+}
+
+.stock-table th,
+.stock-table td {
+  padding: 12px;
+  border-bottom: 1px solid #dee2e6;
+  text-align: left;
+}
+
+.stock-table input[type="number"],
+.stock-table input[type="date"] {
+  padding: 6px;
+  width: 100%;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.btn-save,
+.btn-cancel,
+.btn-edit {
+  /* padding: 6px 12px; */
+  border: none;
+  /* border-radius: 4px; */
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.btn-save {
+  background-color: #fff;
+  color: #000;
+  /* margin-right: 5px; */
+}
+
+.btn-cancel {
+  background-color: #fff;
+  color: #000;
+}
+
+.btn-edit {
+  color: #000;
+  background: none;
+}
+
+.btn-delete {
+  color: #000;
+}

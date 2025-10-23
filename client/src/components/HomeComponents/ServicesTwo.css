@@ -1,0 +1,110 @@
+.our-services {
+    text-align: center;
+    padding: 60px 20px;
+    background-color: #f9f9f9;
+  }
+  
+  .services-header {
+    max-width: 1200px;
+    margin: 0 auto 40px;
+  }
+  
+  .our-services-heading {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .intro {
+    font-size: 1.2rem;
+    color: #555;
+  }
+  
+  .our-services-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 1000px;
+    height: auto;
+    margin: 0 auto;
+    /* align-items: center; */
+    justify-content: center;
+  }
+  
+  /* Service Card Styling */
+  .service-card {
+    background: white;
+    padding: 0px 0px 20px 0px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  }
+  
+  .service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  }
+
+  .expanded-card {
+    height: auto;
+  }
+  
+  .service-image {
+    width: 100%;
+    height: 400px;
+    object-fit: fill;
+    border-radius: 8px;
+  }
+  
+  .service-title {
+    font-size: 1.5rem;
+    color: #333;
+    margin: 15px 0 10px;
+    text-decoration: none;
+  }
+
+  .service-title:hover{
+    color:#0288d1;
+  }
+  
+  .service-description {
+    font-size: 1rem;
+    color: #555;
+    margin: 0px 20px;
+    margin-bottom: 15px;
+    text-align: left;
+  }
+  
+  .learn-more {
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    background-color: #0288d1;
+    color: white;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+    border-radius: 5px;
+  }
+  
+  .learn-more:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Responsive Design */
+  @media (min-width: 768px) {
+    .our-services-grid {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+      .our-services-grid {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+  }
+  

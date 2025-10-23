@@ -1,0 +1,76 @@
+.summary-section {
+    padding: 16px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+  }
+  
+  .summary-title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .summary-details {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .summary-item {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .coupon-input {
+    padding: 8px;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .apply-btn
+  {
+    padding: 10px;
+    margin-top: 10px;
+    width: 20%;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  .remove-btn{
+    margin-top: 10px;   
+    width: 15%;
+    border: none;
+    cursor: pointer;
+    color: red;
+  }
+
+
+  .checkout-btn {
+    padding: 10px;
+    margin-top: 10px;
+    width: 100%;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .apply-btn {
+    background-color: #333;
+    color: white;
+  }
+  
+  .checkout-btn {
+    background-color: #4caf50;
+    color: white;
+  }
+  
+  .message.success {
+    color: green;
+  }
+  
+  .message.error {
+    color: red;
+  }
+  

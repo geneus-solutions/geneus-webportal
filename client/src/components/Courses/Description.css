@@ -1,0 +1,35 @@
+/* CourseDetails.css */
+
+.course-details-description h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    border-bottom: 3px solid #00b0ff;
+    padding-bottom: 5px;
+    display: inline-block;
+    font-weight: bold;
+    text-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+  }
+
+.course-details-description {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+  }
+  
+  .course-section {
+    margin-bottom: 20px;
+  }
+  
+  .course-section h5 {
+    font-size: 18px;
+    /* font-weight: bold; */
+  }
+  
+  .course-section p, .course-section li {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  
+  .course-section ul {
+    padding-left: 20px;
+  }
+  

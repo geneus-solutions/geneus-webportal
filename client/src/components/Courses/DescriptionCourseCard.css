@@ -1,0 +1,135 @@
+/* CourseCard.css */
+
+/* Container styling */
+.course-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 20px 0;
+  border-radius: 10px;
+}
+
+/* Column styling */
+.course-col {
+  flex: 1;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Image styling */
+.course-image {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+}
+
+/* Body styling */
+.course-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Title styling */
+.course-title {
+  text-align: left;
+  color: #333;
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* Price details styling */
+.course-details.course-price {
+  margin-bottom: 15px;
+}
+
+.course-details {
+  text-align: left;
+}
+
+.course-details > h6 {
+  font-size: 1.5rem;
+  color: #555;
+}
+
+/* Price styling */
+.course-price {
+  font-size: 1.5rem;
+  color: #d9534f;
+  font-weight: bold;
+}
+
+/* Button styling */
+.add-to-cart-button {
+  display: inline-block;
+  font-weight: 500;
+  border: 1px solid transparent;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: 5px;
+  color: #fff;
+  background-color: #00b0ff;
+  border-color: #007bff;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+}
+
+.add-to-cart-button:hover {
+  background-color: rgb(7, 109, 219);
+}
+
+/* Responsive design: Adjust for tablets and smaller screens */
+
+@media (max-width: 768px) {
+  .course-col {
+    flex: 0 0 100%;
+    max-width: 100%;
+    padding: 10px;
+  }
+
+  .course-title {
+    font-size: 1.5rem;
+  }
+
+  .course-details h6 {
+    font-size: 1rem;
+  }
+
+  .course-price {
+    font-size: 1.2rem;
+  }
+
+  .add-to-cart-button {
+    font-size: 0.9rem;
+    padding: 0.4rem 0.8rem;
+  }
+}
+
+/* Responsive design: Adjust for mobile devices */
+@media (max-width: 480px) {
+  .course-col {
+    padding: 5px;
+  }
+
+  .course-title {
+    font-size: 1.2rem;
+  }
+
+  .course-details h6 {
+    font-size: 0.9rem;
+  }
+
+  .course-price {
+    font-size: 1rem;
+  }
+
+  .add-to-cart-button {
+    font-size: 0.8rem;
+    padding: 0.3rem 0.6rem;
+  }
+}

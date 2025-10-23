@@ -1,0 +1,39 @@
+/* CourseOtherDetails.css */
+
+.requirements {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+  }
+  
+  .requirements h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    border-bottom: 3px solid #00b0ff;
+    padding-bottom: 5px;
+    display: inline-block;
+    font-weight: bold;
+    text-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  }
+  
+  .requirements-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .requirements-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .checkmark {
+    color: green;
+    font-size: 18px;
+    margin-right: 10px;
+  }
+  
+  .requirement-text {
+    font-size: 16px;
+  }
+  

@@ -1,0 +1,92 @@
+.container {
+  max-width: 800px;
+  /* margin: 0 auto; */
+  padding: 0 20px;
+  font-family: 'Segoe UI', sans-serif;
+}
+  
+h2 {
+  margin: 0;
+  font-size: 24px;
+  /* margin-bottom: 8px; */
+}
+  
+p{
+  margin: 0;
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 16px;
+}
+  
+.searchInput {
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  background-color: transparent;
+  outline: none;
+  border-radius: 6px;
+  margin-bottom: 20px;
+}
+  
+.lessonCount {
+  font-size: 14px;
+  font-weight: bold;
+  color: #555;
+  margin-bottom: 8px;
+}
+  
+.lessonList {
+  display: flex;
+  flex-direction: column;
+  max-height: 350px;
+  margin-bottom: 20px;
+  overflow-y: auto;
+  gap: 12px;
+}
+
+.lessonList::-webkit-scrollbar {
+  width: 8px;
+  background-color: transparent;
+}
+  
+.lessonItem {
+  display: flex;
+  gap: 10px;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #eee;
+  padding: 10px 0;
+  cursor: pointer;
+}
+
+.lessonItem input[type='radio'] {
+  accent-color: black;
+  cursor: pointer;
+}
+
+.lessonInfo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+}
+  
+.lessonIndex {
+  font-weight: bold;
+  color: #111;
+  width: 20px;
+}
+
+.lessonTitle {
+  flex: 1;
+  color: #333;
+}
+
+.lessonDuration {
+  color: #888;
+  font-size: 13px;
+  min-width: 40px;
+  text-align: right;
+}
+  

@@ -1,0 +1,135 @@
+/* Footer.css */
+
+.footer {
+    background: linear-gradient(to bottom, #2278e8, #000000);
+    color: #fff;
+    padding: 40px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+.footer-container {
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.footer-section {
+    flex: 1;
+    margin: 15px;
+    min-width: 250px;
+}
+
+.company-info h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: #ffffff;
+}
+
+.company-info p {
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.social-icon {
+    font-size: 24px;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.social-icon:hover {
+    transform: scale(1.1);
+}
+
+.facebook{
+    color: white;
+}
+
+.instagram {
+    color: #e4405f;
+}
+
+.whatsapp {
+    color: #25d366;
+}
+
+.quick-links h3,
+.contact-info h3 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    color: #ffffff;
+
+}
+
+.quick-links ul,
+.contact-info ul {
+    list-style: none;
+    padding: 0;
+}
+
+.quick-links li,
+.contact-info li {
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.footer-links {
+    color: #fff !important;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.quick-links a:hover {
+    color: #e0e0e0;
+}
+
+.contact-info li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact-info li svg {
+    margin-right: 8px;
+}
+
+/* Responsive Design */
+
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-section {
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer {
+        padding: 30px 0;
+    }
+
+    .company-info h2 {
+        font-size: 20px;
+    }
+
+    .social-icon {
+        font-size: 20px;
+    }
+}

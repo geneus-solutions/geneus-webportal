@@ -1,0 +1,76 @@
+.wealth-section {
+  /* background: linear-gradient(145deg, #f1f1f1, #ffffff); */
+  padding: 3rem 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.wealth-content {
+  max-width: 100%;
+}
+
+.wealth-heading {
+  text-align: center;
+  font-size: clamp(1.3rem, 4vw, 2.2rem);
+  font-weight: 800;
+  
+  color: #272727;
+  margin-bottom: 2rem;
+  line-height: 1.5;
+}
+
+.wealth-heading span {
+  color: #007bff;
+}
+
+.wealth-points {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.wealth-points li {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: flex-start;
+  color: #333;
+}
+
+.tick {
+  color: #28a745;
+  font-weight: bold;
+  margin-right: 10px;
+  font-size: 1.3rem;
+  line-height: 1.2;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .wealth-heading {
+    font-size: 1.6rem;
+  }
+
+  .wealth-content {
+    padding: 2rem;
+  }
+
+  .wealth-points li {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .wealth-heading {
+    font-size: 1.4rem;
+  }
+
+  .wealth-content {
+    padding: 1.5rem;
+  }
+
+  .tick {
+    font-size: 1.1rem;
+  }
+}

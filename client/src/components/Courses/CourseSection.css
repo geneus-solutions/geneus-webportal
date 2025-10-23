@@ -1,0 +1,44 @@
+/* CourseSection.css */
+.course-section {
+  margin-bottom: 20px;
+}
+
+.course-section h5 {
+  font-size: 18px;
+}
+
+.paragraph {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 50px;
+  text-decoration: underline;
+  animation: colorChange 1s infinite;
+}
+
+@keyframes colorChange {
+  0% {
+    color: red;
+  }
+  25% {
+    color: blue;
+  }
+  50% {
+    color: green;
+  }
+  75% {
+    color: orange;
+  }
+  100% {
+    color: purple;
+  }
+}
+
+.course-section p,
+.course-section li {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.course-section ul {
+  padding-left: 20px;
+}

@@ -1,0 +1,46 @@
+/* LearningPoints.css */
+.learning-points-container {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    border-bottom: 3px solid #00b0ff;
+    display: inline-block;
+    padding-bottom: 5px;
+    text-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  }
+  
+  .points-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .point-item {
+    display: flex;
+    align-items: flex-start;
+    width: 45%;
+    margin-bottom: 20px;
+    margin-right: 5%;
+  }
+  
+  .checkmark {
+    font-size: 24px;
+    color: green;
+    margin-right: 10px;
+  }
+  
+  .point-text {
+    font-size: 16px;
+  }
+  

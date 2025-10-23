@@ -1,0 +1,46 @@
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu li {
+  padding: 12px 15px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background 0.3s ease-in-out;
+}
+
+.menu li:hover {
+  background-color: #1a252f; /* Darker shade on hover */
+}
+
+.menu .active {
+  background-color: #1abc9c; /* Highlight active course */
+  font-weight: bold;
+}
+
+.settings {
+  margin-top: auto;
+  text-align: center;
+  padding: 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.settings p {
+  margin: 8px 0;
+  cursor: pointer;
+  transition: color 0.3s ease-in-out;
+}
+
+.settings p:hover {
+  color: #1abc9c; /* Highlight setting options */
+}

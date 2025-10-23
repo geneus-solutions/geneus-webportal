@@ -1,0 +1,50 @@
+.footer-table-container {
+    display: flex;
+    justify-content:center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-right: 20px;
+  }
+  
+  .footer-table {
+    width: 60%;
+    border-collapse: collapse;
+    font-size: 14px;
+    text-align: center;
+  }
+  
+  .footer-table th, .footer-table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+  }
+  
+  .footer-table th {
+    background-color: #006699;
+    color: white;
+    font-weight: bold;
+  }
+  
+  .footer-table .totals, .footer-table .goal, .footer-table .remaining {
+    font-weight: bold;
+  }
+  
+  .footer-table .totals {
+    background-color: #f7f7f7;
+  }
+  
+  .footer-table .goal {
+    background-color: #f1f1f1;
+  }
+  
+  .footer-table .remaining {
+    background-color: #f7f7f7;
+  }
+  
+  .footer-table .remaining .positive {
+    color: green;
+  }
+  
+  .footer-table .remaining .negative {
+    color: red;
+  }
+  

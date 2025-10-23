@@ -1,0 +1,134 @@
+/* Chat container */
+.chat-container {
+  width: 100%;
+  max-width: 400px;
+  height: 550px;
+  position: relative;
+  margin: 0 auto;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-family: Arial, sans-serif;
+  overflow: hidden;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Scrollable chat area */
+.chat-box {
+  flex: 1;
+  overflow-y: auto;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;
+  height: 60%;
+  padding: 10px;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Chat message bubbles */
+.chat-message {
+  margin: 8px 0;
+  padding: 10px 15px;
+  border-radius: 16px;
+  max-width: 80%;
+  display: block;
+  word-wrap: break-word;
+}
+
+.chat-message.bot {
+  background-color: #e0e0e0;
+  align-self: flex-start;
+}
+
+.chat-message.user {
+  background-color: #0084ff;
+  color: white;
+  align-self: flex-end;
+}
+
+/* Question list container */
+.question-list {
+  /* border-top: 1px solid #ccc; */
+  height: 40%;
+  background: #ffffff;
+  overflow-y: auto;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;
+  padding: 10px;
+}
+
+/* Buttons for preset questions */
+.question-button {
+  width: 100%;
+  text-align: left;
+  padding: 10px;
+  margin-bottom: 5px;
+  border: 1px solid #007BFF;
+  border-radius: 10px;
+  cursor: pointer;
+  color: #007BFF;
+  background-color: #ffffff;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.question-button:hover {
+  background-color: #e6f0ff;
+  color: #0056b3;
+  border-color: #0056b3;
+}
+
+/* User input area */
+.user-input {
+  display: flex;
+  /* padding: 10px; */
+  background-color: #fafafa;
+  border-top: 1px solid #ccc;
+}
+
+.user-input input[type="text"] {
+  flex: 1;
+  padding: 10px 20px;
+  border: none;
+  /* border-radius: 6px; */
+  font-size: 14px;
+  outline: none;
+  color: #000;
+}
+
+.user-input button {
+  margin-left: 8px;
+  padding: 10px 16px;
+  background-color: #0084ff;
+  color: white;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.user-input button:hover {
+  background-color: #006edc;
+}
+
+
+
+
+/* Responsive adjustments */
+@media screen and (max-width: 600px) {
+  .chat-container {
+    width: 90vw;
+    height: 70vh;
+    max-width: none;
+    border-radius: 8px;
+    margin: 0 auto;
+  }
+
+  .question-button {
+    font-size: 13px;
+    padding: 8px;
+  }
+}

@@ -1,0 +1,92 @@
+.curriculum {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.curriculum-heading {
+  font-size: clamp(1.3rem, 4vw, 2.2rem);
+  text-align: center;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+  color: #000;
+}
+
+.curriculum-subheading {
+  text-align: center;
+  color: #666;
+  margin-bottom: 2rem;
+  font-size: clamp(0.95rem, 2vw, 1.15rem);
+}
+
+.curriculum-grid {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  width: 100%;
+}
+
+@media (min-width: 1024px) {
+  .curriculum-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.curriculum-card {
+  background-color: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  min-width: 0;
+}
+
+.module-title {
+  font-size: clamp(1rem, 2.5vw, 1.3rem);
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 0.3rem;
+}
+
+.module-subtitle {
+  font-size: clamp(0.95rem, 2vw, 1.1rem);
+  font-weight: 600;
+  color: #555;
+  margin-bottom: 0.5rem;
+}
+
+.module-time {
+  font-size: clamp(0.8rem, 1.5vw, 1rem);
+  color: #777;
+  margin-bottom: 1rem;
+}
+
+.module-points {
+  padding-left: 1.2rem;
+}
+
+.module-points li {
+  margin-bottom: 0.5rem;
+  list-style: disc;
+  color: #222;
+  line-height: 1.4;
+}
+
+/* Responsive tweaks */
+@media (max-width: 600px) {
+  .curriculum {
+    padding: 1rem 0.25rem;
+  }
+  .curriculum-heading {
+    font-size: 1.1rem;
+  }
+  .curriculum-subheading {
+    font-size: 0.9rem;
+  }
+  .curriculum-card {
+    padding: 1rem;
+  }
+  .curriculum-grid {
+    gap: 1rem;
+  }
+}

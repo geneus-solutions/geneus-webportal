@@ -1,0 +1,90 @@
+  .popup-modal {
+    width: 430px;
+    height: 200px;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.6rem 3rem;
+    border: 3px solid black;
+    border-radius: 5px;
+    background: white;
+    box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.2);
+  }
+
+
+  .popup-message {
+    font-size: 1.1rem;
+    margin-top: 0;
+    color: black;
+    word-wrap: break-word;
+}
+  
+.popup-options {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  gap: 10px;
+}
+
+.popup-btn-yes {
+  color: inherit;
+  font-family: inherit;
+  font-size: 1rem;
+  background: red;
+  padding: 0.5rem 1.5rem;
+  border-radius: 10px;
+  border: 3px solid black;
+  box-shadow: 0 0 0 black;
+  transition: all 0.2s;
+  flex: 1;
+  min-width: 100px;
+}
+
+/* Styling the No button */
+.popup-btn-no {
+  color: inherit;
+  font-family: inherit;
+  font-size: 1rem;
+  background: green;
+  border-radius: 10px;
+  padding: 0.5rem 1.5rem;
+  border: 3px solid black;
+  box-shadow: 0 0 0 black;
+  transition: all 0.2s;
+  flex: 1;
+  min-width: 100px;
+}
+
+/* Hover effects */
+.popup-btn-yes:hover {
+  background-color: rgb(77, 6, 6);
+}
+
+.popup-btn-no:hover {
+  background-color: rgb(6, 52, 6);
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+  .popup-modal {
+      width: 95%;
+      padding: 1.2rem;
+  }
+
+  .popup-options {
+      flex-direction: column;
+      gap: 10px;
+  }
+
+  .popup-btn-yes,
+  .popup-btn-no {
+      width: 100%;
+  }
+}

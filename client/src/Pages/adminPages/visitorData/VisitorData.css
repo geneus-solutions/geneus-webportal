@@ -1,0 +1,142 @@
+
+.visitor-container {
+    max-width: 100wh;
+    height: 100vh;
+    /* margin: 40px auto; */
+    background: #ffffff;
+    padding: 20px;
+    /* border-radius: 10px; */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    color: white;
+    font-family: "Poppins", sans-serif;
+  }
+  
+  .visitor-title {
+    text-align: center;
+    font-size: 40px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #000000;
+  }
+  
+  /* Filter Section */
+  .filter-container {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+    color: #000000;
+  }
+  
+  input[type="date"] {
+    padding: 10px;
+    border: 1px solid #475569;
+    border-radius: 6px;
+    background: #000000;
+    color: #bcbcbc;
+    font-size: 16px;
+    outline: none;
+    appearance: none;
+    transition: 0.3s;
+  }
+
+  input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(1); /* Turns the black icon into white */
+    cursor: pointer;
+    color: #000000;
+  }
+  
+  /* Firefox - Hide default icon */
+  input[type="date"]::-moz-calendar-picker-indicator {
+    filter: invert(1);
+    cursor: pointer;
+    color: #000000;
+  }
+  
+  input[type="date"]:hover,
+  input[type="date"]:focus {
+    border-color: #000000;
+  }
+  
+  .filter-btn {
+    padding: 10px 15px;
+    background: #facc15;
+    color: #1e293b;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  .delete-btn {
+    padding: 10px 15px;
+    background: rgb(173, 23, 23);
+    color: #1e293b;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  filter-btn:hover {
+    background: #eab308;
+  }
+  
+  filter-btn:disabled {
+    background: #4b5563;
+    cursor: not-allowed;
+  }
+  
+  /* Visitor Table */
+  .visitor-table-container {
+    max-height: 80%;
+    overflow-x: auto;
+    overflow-y: auto;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* Internet Explorer 10+ */
+  }
+  
+  .visitor-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  .visitor-table th,
+  .visitor-table td {
+    padding: 12px;
+    text-align: left;
+  }
+  
+  .visitor-table th {
+    background: #b4d4e6;
+    color: #000000;
+    font-weight: bold;
+  }
+  
+  .visitor-table tbody tr:nth-child(even) {
+    background: #dbdbe1;
+    color: #000000;
+  }
+  
+  .visitor-table tbody tr:nth-child(odd) {
+    background: #bcbcbc;
+    color: #000000;
+  }
+  
+  .visitor-table tbody tr:hover {
+    background: #bebebe;
+  }
+  
+  /* No Data Message */
+  .no-data {
+    text-align: center;
+    font-size: 18px;
+    color: #eab308;
+    margin-top: 20px;
+  }
+  

@@ -1,0 +1,136 @@
+.faq-section {
+  max-width: 1000px;
+  padding: 60px 16px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.faq-heading {
+  color: #000;
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+
+.faq-subheading {
+  font-size: clamp(1.1rem, 2.2vw, 1.4rem);
+  color: #555;
+  margin-bottom: 40px;
+}
+
+.faq-list {
+  text-align: left;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  box-sizing: border-box;
+}
+
+.faq-item {
+  border-top: 1px solid #e0e0e0;
+  padding: 15px 0;
+  transition: background 0.2s;
+}
+
+.faq-question {
+  color: #000000bf;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  font-weight: 500;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 12px 0;
+  width: 100%;
+  text-align: left;
+}
+
+.faq-question:hover {
+  color: #000;
+}
+
+.arrow {
+  transition: transform 0.3s ease;
+  font-size: 1.4rem;
+}
+
+.arrow.open {
+  transform: rotate(180deg);
+}
+
+.faq-answer {
+  font-size: clamp(1rem, 2vw, 1.15rem);
+  color: #444;
+  margin-top: 10px;
+  line-height: 1.6;
+  word-wrap: break-word;
+}
+
+/* Tablet (768px and below) */
+@media (max-width: 768px) {
+  .faq-section {
+    padding: 40px 16px;
+  }
+
+  .faq-question,
+  .faq-answer {
+    font-size: 0.95rem;
+  }
+
+  .faq-heading {
+    font-size: 1.5rem;
+  }
+
+  .faq-subheading {
+    font-size: 1.1rem;
+  }
+}
+
+/* Mobile (480px and below) */
+@media (max-width: 480px) {
+  .faq-section {
+    padding: 32px 12px;
+  }
+
+  .faq-question {
+    font-size: 0.9rem;
+  }
+
+  .faq-answer {
+    font-size: 0.875rem;
+  }
+
+  .faq-heading {
+    font-size: 1.3rem;
+  }
+
+  .faq-subheading {
+    font-size: 1rem;
+  }
+
+  .arrow {
+    font-size: 1rem;
+  }
+}
+
+/* Larger Screens (Laptops/Desktops) */
+@media (min-width: 1024px) {
+  .faq-question {
+    font-size: 1.2rem;
+  }
+
+  .faq-answer {
+    font-size: 1.1rem;
+  }
+
+  .faq-heading {
+    font-size: 2.25rem;
+  }
+
+  .faq-subheading {
+    font-size: 1.4rem;
+  }
+}

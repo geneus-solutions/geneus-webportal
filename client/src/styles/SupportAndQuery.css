@@ -1,0 +1,75 @@
+/* SupportForm.css */
+.support-form-container {
+  display: flex;
+  justify-content: center;
+  background-image: url("../assets/background_Support.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.support-form {
+  background-color: #fff;
+  padding: 2rem;
+  background-color: rgba(255, 255, 255, 0.7);
+  width: 100%;
+}
+
+.support-form h2 {
+  margin-bottom: 0.5rem;
+  font-size: 24px;
+  color: #333;
+  text-align: center;
+}
+
+.support-form p {
+  margin-bottom: 1.5rem;
+  color: #666;
+  text-align: center;
+}
+
+.support-form input,
+.support-form textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.support-form input:focus,
+.support-form textarea:focus {
+  border-color: #000000;
+}
+
+.support-form button {
+  padding: 0.75rem 1.5rem;
+  background-color: #007bff;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s;
+  float: right;
+}
+
+.support-form button:hover {
+  background-color: #005abb;
+}
+
+.support-form::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .support-form {
+    padding: 1.5rem;
+  }
+}

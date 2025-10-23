@@ -1,0 +1,14 @@
+.notes-card-content {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+  }
+  
+  .notes-heading {
+    font-size: 24px;
+    margin-bottom: 10px;
+    border-bottom: 3px solid #00b0ff;
+    padding-bottom: 5px;
+    display: inline-block;
+    font-weight: bold;
+    text-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  }

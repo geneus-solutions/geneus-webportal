@@ -1,0 +1,66 @@
+.about-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 20px;
+  text-align: center;
+/* background: linear-gradient(to bottom, #dbeafe, #f5e3e3); */
+  min-height: 20vh;
+}
+
+.aboutus-content {
+  max-width: 600px;
+  text-align: center;
+}
+
+.aboutus-content h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.aboutus-content p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+.aboutus-buttons {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.btn {
+  padding: 10px 20px;
+  margin: 0 10px;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.primary {
+  background-color: #0084ff;
+  color: white;
+}
+
+.secondary {
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+.aboutus-socials{
+    display: flex;
+    justify-content: center;
+}
+
+.aboutus-socials a {
+  margin: 0 10px;
+  color: #333;
+  transition: color 0.3s;
+}
+
+.aboutus-socials a:hover {
+  color: #0077b5; /* For LinkedIn style */
+}

@@ -1,0 +1,238 @@
+/* src/components/ContactMap.css */
+
+.contact-map {
+    text-align: center;
+    padding: 60px 20px;
+    /* background: linear-gradient(to bottom, #dbeafe, #f5e3e3); */
+  }
+  
+  .contact-header .contact-link {
+    color: #3b82f6;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 26px;
+  }
+  
+  .contact-header h1 {
+    font-size: 32px;
+    margin: 10px 0;
+    font-weight: bold;
+  }
+  
+  .contact-header p {
+    font-size: 16px;
+    color: #6b7280;
+    margin-top: 8px;
+  }
+  
+  .world-map {
+    position: relative;
+    margin-top: 40px;
+    display: inline-block;
+  }
+  
+  .map-image {
+    width: 100%;
+    max-width: 800px;
+  }
+  
+  .dot {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: #3b82f6;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+  }
+  
+  .tooltip {
+    position: absolute;
+    background: #111827;
+    color: white;
+    padding: 10px;
+    font-size: 12px;
+    border-radius: 8px;
+    transform: translate(-50%, -100%);
+    white-space: nowrap;
+    display: none;
+  }
+  
+  .dot:hover + .tooltip,
+  .tooltip:hover {
+    display: block;
+  }
+
+
+  /* Social Link options */
+
+  /* src/components/ContactOptions.css */
+
+.contact-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 40px;
+    justify-content: center;
+  }
+  
+  .contact-card {
+    background-color: rgba(135, 207, 235, 0.1);
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    padding: 30px 20px;
+    width: 220px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    transition: box-shadow 0.3s ease;
+  }
+  
+  .contact-card:hover {
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.08);
+    background-color: rgba(135, 207, 235, 0.4);
+  }
+  
+  .icon {
+    background-color: rgba(135, 207, 235, 0.1);
+    font-size: 30px;
+    margin-bottom: 20px;
+  }
+  
+  .contact-card h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #111827;
+  }
+  
+  .description {
+    font-size: 14px;
+    color: #6b7280;
+    margin-bottom: 20px;
+  }
+  
+  .contact-button {
+    display: inline-block;
+    padding: 8px 14px;
+    font-size: 13px;
+    border-radius: 6px;
+    text-decoration: none;
+    border: 1px solid #007BFF;
+    color: #007BFF;
+    background-color: #f9fafb;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  }
+  
+  .contact-button:hover {
+    background-color: #007BFF;
+    color: white;
+    border-color: #007BFF;
+  }
+  
+
+  /* Contact form */
+  /* ContactForm.css */
+
+.form-full-width {
+    background-color: #f9faf5;
+    padding: 50px 80px;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  
+  .contact-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+  }
+  
+  .contact-header h1 {
+    font-size: 2.2rem;
+    color: #111827;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+  
+  .contact-header p {
+    font-size: 1rem;
+    color: #6b7280;
+  }
+  
+  form {
+    width: 100%;
+  }
+  
+  .input-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .input-group {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .input-group label {
+    font-weight: bolder;
+    margin-bottom: 0.5rem;
+    color: #374151;
+    text-align: left;
+  }
+  
+  .input-group input,
+  .input-group textarea {
+    padding: 0.75rem 1rem;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    font-size: 1rem;
+    background: #ffffff;
+    color: #111827;
+    transition: border-color 0.3s ease;
+  }
+  
+  .input-group input:focus,
+  .input-group textarea:focus {
+    border-color: #3b82f6;
+    outline: none;
+  }
+  
+  textarea {
+    resize: vertical;
+    min-height: 150px;
+  }
+  
+  .contact-send-button {
+    background-color: #3b82f6;
+    color: #ffffff;
+    padding: 0.75rem 2rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .contact-send-button:hover {
+    background-color: #2563eb;
+  }
+  
+  .contact-send-button:disabled {
+    background-color: #a0c8f0;
+    cursor: not-allowed;
+  }
+  
+  /* Responsive styles */
+  @media (max-width: 768px) {
+    .form-full-width {
+      padding: 30px 20px;
+    }
+  
+    .input-row {
+      flex-direction: column;
+    }
+  }
+  
+  
+  
+  

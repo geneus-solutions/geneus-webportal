@@ -1,0 +1,53 @@
+.circle-card {
+    width: 370px; /* Fixed width */
+    height: 370px; /* Fixed height */
+    border: 3px solid transparent;
+    border-radius: 50%;
+    border-image-slice: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; 
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.2s ease;
+    overflow: hidden; /* Prevents content overflow */
+  }
+
+  .circle-card:hover {
+    background: var(--gradient); /* Dynamic gradient on hover */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Shadow effect */
+     transition: transform 0.3s ease;
+     transform: translateY(-5px);
+  }
+  
+  
+  .circle-icon {
+    font-size: 40px;
+    margin-bottom: 10px;
+  }
+  
+  .circle-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 5px 0;
+  }
+
+  .circle-description-container {
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    padding: 0 10px;
+  }
+  
+  
+  .circle-description {
+    font-size: 14px;
+    color: #555;
+    margin-top: 10px;
+    overflow: hidden;
+    padding: 10px;
+    text-overflow: ellipsis; /* Handles overflow text gracefully */
+  }
+  

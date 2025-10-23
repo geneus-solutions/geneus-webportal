@@ -1,0 +1,90 @@
+.enquiry-list {
+    padding: 40px 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  .enquiry-list h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+    font-size: 28px;
+    font-weight: 600;
+  }
+  
+  .enquiry-card {
+    position: relative;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    margin-bottom: 25px;
+    padding: 25px 30px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.05);
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 20px;
+    align-items: center;
+  }
+
+  .delete-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: none;
+    border: none;
+    color: #888;
+    font-size: 18px;
+    cursor: pointer;
+    transition: color 0.2s ease;
+  }
+  
+  .delete-btn:hover {
+    color: red;
+  }
+  
+  .enquiry-details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px 30px;
+  }
+  
+  .enquiry-details p {
+    margin: 4px 0;
+    font-size: 15px;
+    color: #444;
+  }
+  
+  .enquiry-details strong {
+    font-weight: 600;
+    color: #222;
+  }
+  
+  .enquiry-status {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;
+  }
+  
+  .enquiry-status label {
+    font-weight: 600;
+    font-size: 14px;
+    color: #555;
+  }
+  
+  .enquiry-status select {
+    padding: 8px 12px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background-color: #f8f8f8;
+    cursor: pointer;
+    transition: border 0.2s;
+  }
+  
+  .enquiry-status select:focus {
+    outline: none;
+    border-color: #007bff;
+  }
+  

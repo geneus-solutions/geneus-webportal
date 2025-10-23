@@ -1,0 +1,126 @@
+.container {
+  display: flex;
+  /* gap: 20px; */
+  /* max-width: 900px; */
+  /* margin: 2rem auto; */
+  /* padding: 2rem; */
+  /* background: #ffffff; */
+  /* border-radius: 12px; */
+  font-family: 'Inter', sans-serif;
+  /* box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05); */
+}
+
+h2 {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #111827;
+}
+
+.subtitle {
+  font-size: 14px;
+  color: #6b7280;
+  margin-bottom: 2rem;
+}
+
+.label {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 500;
+  color: #111827;
+  margin-bottom: 6px;
+}
+
+.required {
+  color: #ef4444;
+  margin-left: 4px;
+}
+
+.form input,
+.form textarea,
+.form select {
+  width: 100%;
+  padding: 12px 14px;
+  font-size: 15px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  background-color: transparent;
+  transition: border 0.3s;
+  margin-bottom: 1.5rem;
+}
+
+.form input:focus,
+.form textarea:focus,
+.form select:focus {
+  border-color: #3b82f6;
+  outline: none;
+}
+
+/* .textareaRich {
+  min-height: 120px;
+} */
+
+.questionBox {
+  /* border: 1px solid #e5e7eb; */
+  /* padding: 1.5rem; */
+  /* margin-bottom: 2rem; */
+  border-radius: 10px;
+  background: transparent;
+}
+
+.options {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  /* row-gap: 5px; */
+  column-gap: 20px;
+  /* display: flex;
+  flex-wrap: wrap;
+  gap: 12px; */
+  /* margin-bottom: 1rem; */
+}
+
+.options input {
+  flex: 1 1 calc(50% - 12px);
+  padding: 10px;
+  font-size: 14px;
+  border-radius: 6px;
+  border: 1px solid #d1d5db;
+}
+
+button {
+  padding: 12px 20px;
+  background-color: #3b82f6;
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  font-weight: 500;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  /* margin-top: 1rem; */
+  /* margin-right: 1rem; */
+}
+
+button:hover {
+  background-color: #2563eb;
+}
+
+button[type="submit"] {
+  background-color: #10b981;
+}
+
+button[type="submit"]:hover {
+  background-color: #059669;
+}
+
+@media (max-width: 600px) {
+  .options input {
+    flex: 1 1 100%;
+  }
+
+  button {
+    width: 100%;
+    margin-right: 0;
+  }
+}
