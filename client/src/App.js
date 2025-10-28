@@ -26,6 +26,7 @@ import PrivacyPolicy from "./components/privacyPolicy/PrivacyPolicy";
 import PrivacyPolicyPage from "./Pages/PrivacyPolicyPage";
 import ScrollToTop from "./components/scrollToTop/ScrollToTop";
 import UserProfile from "./components/UserProfile/UserProfile";
+import Careers from "./components/CareersPage/Careers"
 import LoginPage from "./Pages/LoginPage";
 import VerifyAccount from "./Pages/verifyAccount";
 import SignupPage from "./Pages/SignupPage";
@@ -98,6 +99,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="about" element={<About />} />
           <Route path="contact" element={<ContactUs />} />
+          <Route path="careers" element={<Careers />} />
           <Route path="/forgot-password" element={<ForgotPasswordPage />} />
           <Route path="/reset-password/:id" element={<ResetPasswordPage />} />
           <Route path="/landing/:id" element={<LandingPage />} />

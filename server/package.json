@@ -43,6 +43,7 @@
     "razorpay": "^2.9.2",
     "react-scripts": "5.0.1",
     "shortid": "^2.2.16",
+    "uuid": "^13.0.0",
     "yahoo-finance2": "^2.13.3"
   },
   "devDependencies": {

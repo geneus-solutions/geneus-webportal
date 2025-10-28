@@ -11,6 +11,7 @@ import { dirname } from 'path';
 
 import connectDB from './db/Connect.js'
 import errorHandler from "./middlewares/errorHandler.js";
+import jobRoutes from "./routes/jobRoutes.js";
 
 
 // Manually create __dirname
@@ -79,6 +80,9 @@ app.use(morgan("combined", { stream: accessLogStream }));
 
 // Error Handler Middleware:-
 app.use(errorHandler);
+
+app.use('/api/jobs', jobRoutes);
+
 
 // Start the server
 const PORT = process.env.PORT || 8000;
