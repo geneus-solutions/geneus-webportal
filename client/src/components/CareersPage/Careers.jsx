@@ -1,10 +1,15 @@
 import React, { useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import gojeklogo from "../../assets/gojek-logo.webp";
+import gopaylogo from "../../assets/gopay-logo.png";
+import ovologo from "../../assets/ovo-logo.png";
 import {
   ArrowUpRightIcon,
   MapPinIcon,
   ClockIcon,
   XMarkIcon,
+  BookmarkIcon,
+  ShareIcon,
 } from "@heroicons/react/24/outline";
 import "./Careers.css";
 import { useDispatch, useSelector } from "react-redux";
@@ -195,56 +200,225 @@ const Careers = () => {
       </section>
 
       {/* Job Popup Modal */}
+
       <AnimatePresence>
         {showModal && selectedJob && (
           <motion.div
-            className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
+            className="fixed inset-0 bg-black bg-opacity-40 flex items-start justify-center overflow-y-auto z-50"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={closeModal}
           >
             <motion.div
-              className="bg-white rounded-2xl shadow-lg max-w-lg w-full p-6 relative"
-              initial={{ y: 50, opacity: 0 }}
+              className="bg-white rounded-2xl shadow-2xl w-full max-w-6xl mx-auto mt-10 mb-10 p-8 relative grid grid-cols-1 md:grid-cols-[2fr_1fr] gap-10"
+              initial={{ y: 40, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              exit={{ y: 50, opacity: 0 }}
+              exit={{ y: 40, opacity: 0 }}
               onClick={(e) => e.stopPropagation()}
             >
               <button
                 onClick={closeModal}
-                className="absolute top-3 right-3 text-gray-600 hover:text-gray-800"
+                className="absolute top-4 right-4 text-gray-500 hover:text-gray-800"
               >
-                <XMarkIcon className="w-5 h-5" />
+                <XMarkIcon className="w-6 h-6" />
               </button>
 
-              <h2 className="text-xl font-bold mb-2">{selectedJob.title}</h2>
-              <p className="text-gray-600 mb-4">
-                {selectedJob.desc}
-              </p>
+              {/* Left: Job Description */}
+              <div className="space-y-6">
+                {/* Header */}
+                <div>
+                  <div className="flex items-center justify-between mb-2">
+                    <h2 className="text-3xl font-bold text-gray-900">
+                      {selectedJob.title}
+                    </h2>
 
-              <div className="flex flex-wrap gap-3 text-sm text-gray-700 mb-4">
-                <span className="flex items-center gap-1 border border-gray-300 rounded-full px-3 py-1">
-                  <MapPinIcon className="w-4 h-4" /> {selectedJob.location}
-                </span>
-                <span className="flex items-center gap-1 border border-gray-300 rounded-full px-3 py-1">
-                  <ClockIcon className="w-4 h-4" /> {selectedJob.employmentType}
-                </span>
+                    <div className="flex items-center space-x-3">
+                      <motion.button
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        className="bg-blue-600 text-white px-6 py-2 rounded-full font-medium shadow hover:bg-blue-700"
+                      >
+                        Apply Now
+                      </motion.button>
+
+                      <button
+                        title="Save Job"
+                        className="p-2 rounded-full border border-gray-300 hover:bg-gray-100"
+                      >
+                        <BookmarkIcon className="w-5 h-5 text-gray-600" />
+                      </button>
+
+                      <button
+                        title="Share Job"
+                        className="p-2 rounded-full border border-gray-300 hover:bg-gray-100"
+                      >
+                        <ShareIcon className="w-5 h-5 text-gray-600" />
+                      </button>
+                    </div>
+                  </div>
+
+                  <p className="text-gray-600 mb-4">{selectedJob.desc}</p>
+
+                  <div className="flex flex-wrap gap-3 text-sm text-gray-700 mb-4">
+                    <span className="flex items-center gap-1 border border-gray-300 rounded-full px-3 py-1">
+                      <MapPinIcon className="w-4 h-4" /> {selectedJob.location}
+                    </span>
+                    <span className="flex items-center gap-1 border border-gray-300 rounded-full px-3 py-1">
+                      <ClockIcon className="w-4 h-4" />{" "}
+                      {selectedJob.employmentType}
+                    </span>
+                  </div>
+                </div>
+
+                {/* Job Details Sections */}
+                <div className="text-gray-700 leading-relaxed">
+                  <h3 className="font-semibold text-lg text-gray-900 mb-2">
+                    About this role
+                  </h3>
+                  <p>
+                    {selectedJob.about}
+                  </p>
+                </div>
+
+                <div>
+                  <h3 className="font-semibold text-lg text-gray-900 mb-2">
+                    Qualifications
+                  </h3>
+                  {selectedJob &&
+                  selectedJob.qualifications &&
+                  selectedJob.qualifications.length > 0 ? (
+                    <ul className="list-disc list-inside space-y-1">
+                      {selectedJob.qualifications.map((item, index) => (
+                        <li key={index}>{item}</li>
+                      ))}
+                    </ul>
+                  ) : (
+                    <p className="text-gray-500 text-sm">
+                      No qualifications listed.
+                    </p>
+                  )}
+                </div>
+
+                <div>
+                  <h3 className="font-semibold text-lg text-gray-900 mb-2">
+                    Responsibilities
+                  </h3>
+                  {selectedJob &&
+                  selectedJob.responsibilities &&
+                  selectedJob.responsibilities.length > 0 ? (
+                    <ul className="list-disc list-inside space-y-1">
+                      {selectedJob.responsibilities.map((item, index) => (
+                        <li key={index}>{item}</li>
+                      ))}
+                    </ul>
+                  ) : (
+                    <p className="text-gray-500 text-sm">
+                      No responsibilities listed.
+                    </p>
+                  )}
+                </div>
               </div>
 
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="w-full bg-black text-white rounded-full py-2 font-medium"
-              >
-                Apply Now
-              </motion.button>
+              {/* Right Sidebar */}
+              <aside className="border-l border-gray-200 pl-6 space-y-8">
+                <div>
+                  <h4 className="text-lg font-semibold text-gray-900 mb-4">
+                    Similar Jobs
+                  </h4>
+                  <div className="space-y-4">
+                    {[
+                      {
+                        title: "Lead UI Designer",
+                        company: "Gojek",
+                        location: "Jakarta, Indonesia",
+                        experience: "3–5 Years",
+                        logo: gojeklogo,
+                      },
+                      {
+                        title: "Sr. UX Designer",
+                        company: "GoPay",
+                        location: "Jakarta, Indonesia",
+                        experience: "3–5 Years",
+                        logo: gopaylogo,
+                      },
+                      {
+                        title: "Jr. UI Designer",
+                        company: "OVO",
+                        location: "Jakarta, Indonesia",
+                        experience: "1–3 Years",
+                        logo: ovologo,
+                      },
+                    ].map((job, i) => (
+                      <div
+                        key={i}
+                        className="flex items-center gap-3 p-4 border border-gray-200 rounded-lg hover:shadow-md transition-shadow cursor-pointer"
+                      >
+                        <img
+                          src={job.logo}
+                          alt={job.company}
+                          className="w-20 h-20 object-contain rounded-md border border-gray-100 bg-white p-2 shadow-md"
+                        />
+                        <div className="flex-1">
+                          <p className="font-medium text-gray-900">
+                            {job.title}
+                          </p>
+                          <p className="text-sm text-gray-600">{job.company}</p>
+                          <p className="text-xs text-gray-500 mt-1">
+                            {job.location} • {job.experience}
+                          </p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Other Jobs */}
+                <div>
+                  <h4 className="text-lg font-semibold text-gray-900 mb-4">
+                    Other Jobs from Pixelz Studio
+                  </h4>
+                  <div className="space-y-4">
+                    {[
+                      {
+                        title: "UI Designer",
+                        type: "Internship • Onsite • Fresh Graduate",
+                        logo: "https://cdn-icons-png.flaticon.com/512/5968/5968705.png",
+                      },
+                      {
+                        title: "Frontend Developer",
+                        type: "Fulltime • Remote • 2–4 Years",
+                        logo: "https://cdn-icons-png.flaticon.com/512/5968/5968292.png",
+                      },
+                    ].map((job, i) => (
+                      <div
+                        key={i}
+                        className="flex items-center gap-3 p-4 border border-gray-200 rounded-lg hover:shadow-md transition-shadow cursor-pointer"
+                      >
+                        <img
+                          src={job.logo}
+                          alt={job.title}
+                          className="w-10 h-10 object-contain rounded-md border border-gray-100 bg-white p-1"
+                        />
+                        <div>
+                          <p className="font-medium text-gray-900">
+                            {job.title}
+                          </p>
+                          <p className="text-xs text-gray-500 mt-1">
+                            {job.type}
+                          </p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </aside>
             </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
 
-       {/* Testimonial */}
+      {/* Testimonial */}
       <motion.section
         variants={fadeUpVariant}
         initial="hidden"
@@ -287,7 +461,6 @@ const Careers = () => {
         <span>•</span>
         <span>Support</span>
       </motion.div>
-
     </div>
   );
 };
