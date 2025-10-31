@@ -1,5 +1,5 @@
 import Job from "../models/Job.js";
-import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuidv4 } from "uuid";
 
 const getAllJobs = async (req, res) => {
   try {
@@ -59,9 +59,14 @@ const createJob = async (req, res) => {
     const {
       title,
       desc,
+      about,
       location = "100% remote",
       employmentType = "Full-time",
+      qualifications = [],
+      responsibilities = [],
     } = req.body;
+
+  
 
     if (!title || !desc) {
       return res.status(400).json({
@@ -80,15 +85,45 @@ const createJob = async (req, res) => {
         message: "A job with this title already exists",
       });
     }
+    const parseArray = (input) => {
+      if (Array.isArray(input))
+        return input.filter((i) => i && i.trim() !== "");
+      if (typeof input === "string" && input.trim() !== "") {
+        try {
+          const parsed = JSON.parse(input);
+          if (Array.isArray(parsed))
+            return parsed.filter((i) => i && i.trim() !== "");
+        } catch {}
+        return input
+          .split(",")
+          .map((i) => i.trim())
+          .filter((i) => i !== "");
+      }
+      return [];
+    };
 
-   const id = uuidv4();
-   
+    const qualificationsArray = parseArray(qualifications);
+    const responsibilitiesArray = parseArray(responsibilities);
+
+    const id = uuidv4();
+
+    const aboutText = about && typeof about === "string" ? about.trim() : "";
+    if (!aboutText) {
+      return res.status(400).json({
+        success: false,
+        message: "About field is required",
+      });
+    }
+
     //---Create Job----------
     const job = await Job.create({
       title: trimmedTitle,
       desc: trimmedDesc,
+      about: aboutText,
       location: location.trim(),
       employmentType,
+      qualifications: qualificationsArray,
+      responsibilities: responsibilitiesArray,
       id,
     });
 
