@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import gojeklogo from "../../assets/gojek-logo.webp";
 import gopaylogo from "../../assets/gopay-logo.png";
@@ -16,6 +17,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchJobs } from "../../features/careers/careersSlice";
 
 const Careers = () => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const { jobs, loading, error } = useSelector((state) => state.careers);
 
@@ -238,6 +240,7 @@ const Careers = () => {
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                         className="bg-blue-600 text-white px-6 py-2 rounded-full font-medium shadow hover:bg-blue-700"
+                        onClick = {() => navigate(`/apply/${encodeURIComponent(selectedJob.title)}`) }
                       >
                         Apply Now
                       </motion.button>

@@ -1,7 +1,10 @@
-import Job from "../models/Job.js";
-import { v4 as uuidv4 } from "uuid";
+import {
+  fetchJobs,
+  fetchJobById,
+  createJobInDB,
+} from "../services/jobService.js";
 
-const getAllJobs = async (req, res) => {
+export const getAllJobs = async (req, res) => {
   try {
     const { search, location, type, page = 1, limit = 10 } = req.query;
 
@@ -10,17 +13,7 @@ const getAllJobs = async (req, res) => {
     if (location) filter.location = location;
     if (type) filter.type = type;
 
-    const skip = (parseInt(page) - 1) * parseInt(limit);
-    const limitNum = parseInt(limit);
-
-    const [jobs, total] = await Promise.all([
-      Job.find(filter)
-        .sort({ createdAt: -1 })
-        .skip(skip)
-        .limit(limitNum)
-        .lean(),
-      Job.countDocuments(filter),
-    ]);
+    const { jobs, total, limitNum } = await fetchJobs(filter, page, limit);
 
     res.json({
       success: true,
@@ -38,14 +31,13 @@ const getAllJobs = async (req, res) => {
   }
 };
 
-const getJobById = async (req, res) => {
+export const getJobById = async (req, res) => {
   try {
     const { id } = req.params;
-    const job = await Job.findOne({ id }).lean();
+    const job = await fetchJobById(id);
 
-    if (!job) {
+    if (!job)
       return res.status(404).json({ success: false, message: "Job not found" });
-    }
 
     res.json({ success: true, data: job });
   } catch (error) {
@@ -54,79 +46,9 @@ const getJobById = async (req, res) => {
   }
 };
 
-const createJob = async (req, res) => {
+export const createJob = async (req, res) => {
   try {
-    const {
-      title,
-      desc,
-      about,
-      location = "100% remote",
-      employmentType = "Full-time",
-      qualifications = [],
-      responsibilities = [],
-    } = req.body;
-
-  
-
-    if (!title || !desc) {
-      return res.status(400).json({
-        success: false,
-        message: "Title and description are required",
-      });
-    }
-
-    const trimmedTitle = title.trim();
-    const trimmedDesc = desc.trim();
-
-    const existingJob = await Job.findOne({ title: trimmedTitle });
-    if (existingJob) {
-      return res.status(400).json({
-        success: false,
-        message: "A job with this title already exists",
-      });
-    }
-    const parseArray = (input) => {
-      if (Array.isArray(input))
-        return input.filter((i) => i && i.trim() !== "");
-      if (typeof input === "string" && input.trim() !== "") {
-        try {
-          const parsed = JSON.parse(input);
-          if (Array.isArray(parsed))
-            return parsed.filter((i) => i && i.trim() !== "");
-        } catch {}
-        return input
-          .split(",")
-          .map((i) => i.trim())
-          .filter((i) => i !== "");
-      }
-      return [];
-    };
-
-    const qualificationsArray = parseArray(qualifications);
-    const responsibilitiesArray = parseArray(responsibilities);
-
-    const id = uuidv4();
-
-    const aboutText = about && typeof about === "string" ? about.trim() : "";
-    if (!aboutText) {
-      return res.status(400).json({
-        success: false,
-        message: "About field is required",
-      });
-    }
-
-    //---Create Job----------
-    const job = await Job.create({
-      title: trimmedTitle,
-      desc: trimmedDesc,
-      about: aboutText,
-      location: location.trim(),
-      employmentType,
-      qualifications: qualificationsArray,
-      responsibilities: responsibilitiesArray,
-      id,
-    });
-
+    const job = await createJobInDB(req.body);
     res.status(201).json({
       success: true,
       message: "Job created successfully",
@@ -144,12 +66,9 @@ const createJob = async (req, res) => {
       });
     }
 
-    res.status(500).json({
+    res.status(400).json({
       success: false,
-      message: "Server error",
-      error: error.message,
+      message: error.message || "Server error",
     });
   }
 };
-
-export { getAllJobs, getJobById, createJob };
