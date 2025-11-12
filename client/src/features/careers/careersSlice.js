@@ -1,62 +1,29 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
+import { apiSlice } from "../../app/api/apiSlice";
 
-
-const API_BASE = process.env.REACT_APP_API_BASE;
-
-if (!API_BASE) {
-  console.error('REACT_APP_API_BASE is missing! Check your .env file.');
-}
-
-const API_URL = `${API_BASE}/jobs`;
-
-
-export const fetchJobs = createAsyncThunk(
-  'jobs/fetchAll', 
-  async (_, { rejectWithValue }) => {
-    try {
-      const response = await axios.get(API_URL);
+export const careerApiSlice = apiSlice.injectEndpoints({
+  endpoints: (builder) => ({
+    careers: builder.query({
+      query: () => '/jobs',
+      transformResponse: (response) => {
+       
+        if (Array.isArray(response)) return response;
+        if (response?.data && Array.isArray(response.data)) return response.data;
+        if (response?.jobs && Array.isArray(response.jobs)) return response.jobs;
+        
+        console.warn("Unexpected API response structure:", response);
+        return []; 
+      },
+      providesTags: ['Jobs'],
+    }),
     
-      const data = response.data.data;
-      return Array.isArray(data) ? data : [];
-    } catch (error) {
-      const message = error.response?.data?.message || error.message || 'Failed to fetch jobs';
-      return rejectWithValue(message);
-    }
-  }
-);
-
-// === Slice ===
-const careersSlice = createSlice({
-  name: 'careers',
-  initialState: {
-    jobs: [],
-    loading: false,
-    error: null,
-  },
-  reducers: {
-   
-    clearJobs: (state) => {
-      state.jobs = [];
-      state.error = null;
-    },
-  },
-  extraReducers: (builder) => {
-    builder
-      .addCase(fetchJobs.pending, (state) => {
-        state.loading = true;
-        state.error = null;
-      })
-      .addCase(fetchJobs.fulfilled, (state, action) => {
-        state.loading = false;
-        state.jobs = action.payload; 
-      })
-      .addCase(fetchJobs.rejected, (state, action) => {
-        state.loading = false;
-        state.error = action.payload;
-      });
-  },
+  
+    career: builder.query({
+      query: ({ id, userId }) => ({
+        url: `/jobDes/${id}?userId=${userId}`,
+        method: 'GET',
+      }),
+    }),
+  }),
 });
 
-export const { clearJobs } = careersSlice.actions;
-export default careersSlice.reducer;
+export const { useCareersQuery, useCareerQuery } = careerApiSlice;
