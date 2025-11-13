@@ -4,11 +4,11 @@ import { getAllJobs, getJobById, createJob } from '../controllers/jobController.
 const router = express.Router();
 
 
-router.get('/', getAllJobs);
+router.get('/jobs', getAllJobs);
 
 
-router.get('/:id', getJobById);
+router.get('/jobs/:id', getJobById);
 
-router.post('/', createJob);
+router.post('/createjob', createJob);
 
 export default router;

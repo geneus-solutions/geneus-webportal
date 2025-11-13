@@ -13,13 +13,18 @@ import {
   ShareIcon,
 } from "@heroicons/react/24/outline";
 import "./Careers.css";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchJobs } from "../../features/careers/careersSlice";
+import {
+  useCareersQuery,
+} from "../../features/careers/careersSlice";
 
 const Careers = () => {
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
-  const { jobs, loading, error } = useSelector((state) => state.careers);
+  const navigate = useNavigate(); 
+
+const { data: jobsData, isLoading, isError} = useCareersQuery();
+
+const jobs = Array.isArray(jobsData) ? jobsData : [];
+
+
 
   const [activeCategory, setActiveCategory] = React.useState("All");
   const [showModal, setShowModal] = React.useState(false);
@@ -36,9 +41,7 @@ const Careers = () => {
     "Management",
   ];
 
-  useEffect(() => {
-    dispatch(fetchJobs());
-  }, [dispatch]);
+
 
   const filteredJobs =
     activeCategory === "All"
@@ -152,13 +155,16 @@ const Careers = () => {
 
       {/* Jobs List */}
       <section className="max-w-4xl mx-auto mt-10 px-6 divide-y divide-gray-200 relative z-10">
-        {loading && (
+        {isLoading && (
           <p className="text-center py-10 text-gray-500">Loading...</p>
         )}
-        {error && (
-          <p className="text-center py-10 text-red-500">Error: {error}</p>
+        {isError && (
+          <p className="text-center py-10 text-red-500">
+            Failed to load jobs. Try again later.
+          </p>
         )}
-        {!loading && filteredJobs.length === 0 && (
+
+        {!isLoading && filteredJobs.length === 0 && (
           <p className="text-center py-10 text-gray-500">
             {activeCategory === "All"
               ? "No jobs available at the moment."
@@ -240,7 +246,11 @@ const Careers = () => {
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                         className="bg-blue-600 text-white px-6 py-2 rounded-full font-medium shadow hover:bg-blue-700"
-                        onClick = {() => navigate(`/apply/${encodeURIComponent(selectedJob.title)}`) }
+                        onClick={() =>
+                          navigate(
+                            `/apply/${encodeURIComponent(selectedJob.title)}`
+                          )
+                        }
                       >
                         Apply Now
                       </motion.button>
@@ -279,9 +289,7 @@ const Careers = () => {
                   <h3 className="font-semibold text-lg text-gray-900 mb-2">
                     About this role
                   </h3>
-                  <p>
-                    {selectedJob.about}
-                  </p>
+                  <p>{selectedJob.about}</p>
                 </div>
 
                 <div>

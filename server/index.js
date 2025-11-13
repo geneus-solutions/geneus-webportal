@@ -84,7 +84,7 @@ app.use(morgan("combined", { stream: accessLogStream }));
 // Error Handler Middleware:-
 app.use(errorHandler);
 
-app.use("/api/jobs", jobRoutes);
+app.use("/api", jobRoutes);
 
 app.use("/api/applications", fileUploadRoutes);
 
