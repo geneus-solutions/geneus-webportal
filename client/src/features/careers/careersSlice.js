@@ -15,15 +15,15 @@ export const careerApiSlice = apiSlice.injectEndpoints({
       },
       providesTags: ['Jobs'],
     }),
-    
-  
-    career: builder.query({
-      query: ({ id, userId }) => ({
-        url: `/jobDes/${id}?userId=${userId}`,
-        method: 'GET',
-      }),
+
+        getJobById: builder.query({
+      query: (id) => `/jobs/${id}`,
+      transformResponse: (response) => {
+        return response?.job || response?.data || response;
+      },
+      providesTags: (result, error, id) => [{ type: 'Jobs', id }],
     }),
   }),
 });
 
-export const { useCareersQuery, useCareerQuery } = careerApiSlice;
+export const { useCareersQuery, useGetJobByIdQuery } = careerApiSlice;

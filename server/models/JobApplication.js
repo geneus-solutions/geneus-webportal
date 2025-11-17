@@ -31,16 +31,6 @@ const jobApplicationSchema = new mongoose.Schema({
     required: true,
     trim: true,
   },
-  tenthMarks: {
-    type: String,
-    required: true,
-    trim: true,
-  },
-  twelfthMarks: {
-    type: String,
-    required: true,
-    trim: true,
-  },
   createdAt: {
     type: Date,
     default: Date.now,

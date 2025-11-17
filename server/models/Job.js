@@ -45,6 +45,40 @@ const jobSchema = new mongoose.Schema({
     type: [String],
     required: true
   },
+  
+  duration: {
+    type: String,
+    default: "Full-time (Permanent)"
+  },
+
+  stipend: {
+    type: Number,  
+    default: null
+  },
+
+  applyBy: {
+    type: String  
+  },
+
+  skills: {
+    type: [String],
+    default: []
+  },
+
+  otherRequirements: {
+    type: String
+  },
+
+  perks: {
+    type: [String],
+    default: []
+  },
+
+  openings: {
+    type: Number,
+    default: 1
+  },
+
   salaryRange: {
     min: Number,
     max: Number,
@@ -53,13 +87,12 @@ const jobSchema = new mongoose.Schema({
       default: 'USD'
     }
   },
-  applicationLink: {
-    type: String
-  },
+
   createdAt: {
     type: Date,
     default: Date.now
   },
+
   updatedAt: {
     type: Date,
     default: Date.now

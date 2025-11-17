@@ -101,7 +101,7 @@ function App() {
           <Route path="about" element={<About />} />
           <Route path="contact" element={<ContactUs />} />
           <Route path="careers" element={<Careers />} />
-          <Route path="/apply/:jobTitle" element={<ApplyJobForm />} />
+          <Route path="/apply-job/:id" element={<ApplyJobForm />} />
           <Route path="/forgot-password" element={<ForgotPasswordPage />} />
           <Route path="/reset-password/:id" element={<ResetPasswordPage />} />
           <Route path="/landing/:id" element={<LandingPage />} />
