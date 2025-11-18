@@ -4,12 +4,15 @@ import { motion } from "framer-motion";
 import axios from "axios";
 import { useGetJobByIdQuery } from "../../features/careers/careersSlice";
 
-const ApplyJobForm = () => {
+const ApplyJobForm = ({ isMernProgram = false}) => {
   const navigate = useNavigate();
   const { id } = useParams();
 
   
-  const { data: job, isLoading, isError } = useGetJobByIdQuery(id);
+  const { data: job, isLoading, isError } = useGetJobByIdQuery(
+    isMernProgram ? undefined : id,
+    { skip: isMernProgram }
+  );
 
   const [formData, setFormData] = useState({
     name: "",
@@ -35,7 +38,7 @@ const ApplyJobForm = () => {
     );
   }
 
-  if (isError || !job) {
+  if (!isMernProgram && (isError || !job)) {
     return (
       <div className="flex flex-col items-center justify-center h-[60vh] text-center">
   <motion.h1
@@ -97,7 +100,12 @@ const ApplyJobForm = () => {
     formDataObj.append("degreeBranch", degreeBranch);
     formDataObj.append("currentSemester", currentSemester);
     formDataObj.append("resume", resume);
-    formDataObj.append("jobId", id);
+    if (!isMernProgram) {
+       formDataObj.append("jobId", id);
+    } else {
+      formDataObj.append("jobId", "mern-program");
+    }
+  
 
     try {
       setLoading(true);
@@ -134,7 +142,7 @@ const ApplyJobForm = () => {
       animate={{ opacity: 1, y: 0 }}
     >
       <h2 className="text-2xl font-bold mb-6 text-center">
-        Apply for : {job?.title}
+        Apply for : {isMernProgram ? "MERN Training + Internship" :job?.title}
       </h2>
 
       <form onSubmit={handleSubmit} className="space-y-3 text-sm">
@@ -182,7 +190,7 @@ const ApplyJobForm = () => {
         </div>
 
         {/* Degree + College */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 w-full items-center">
+        
           <div>
             <label className="block font-medium mb-1">
               Degree <span className="text-red-500">*</span>
@@ -208,7 +216,7 @@ const ApplyJobForm = () => {
               value={formData.college}
             />
           </div>
-        </div>
+       
 
         {/* Current Semester */}
         <div>
@@ -223,7 +231,7 @@ const ApplyJobForm = () => {
             onChange={handleChange}
             value={formData.currentSemester}
           />
-        </div>
+        </div><br></br>
 
         {/* Resume */}
         <div>
@@ -263,6 +271,7 @@ const ApplyJobForm = () => {
           >
             ← Back
           </button>
+
         </div>
       </form>
     </motion.div>
