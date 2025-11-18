@@ -1,4 +1,4 @@
-import React,{useCallback,useEffect } from "react";
+import React, { useCallback, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import { useDispatch, useSelector } from "react-redux";
@@ -28,6 +28,8 @@ import ScrollToTop from "./components/scrollToTop/ScrollToTop";
 import UserProfile from "./components/UserProfile/UserProfile";
 import Careers from "./components/CareersPage/Careers";
 import ApplyJobForm from "./components/CareersPage/ApplyJobForm";
+import MernProgramForm from "./components/CareersPage/MernProgramForm";
+import MernProgram from "./components/CareersPage/MernProgram";
 import LoginPage from "./Pages/LoginPage";
 import VerifyAccount from "./Pages/verifyAccount";
 import SignupPage from "./Pages/SignupPage";
@@ -37,22 +39,20 @@ import UserProfileLayout from "./Pages/UserProfile/UserProfileLayout";
 
 import QuizPage from "./Pages/quiz-page";
 
+
 const INACTIVITY_TIME = 24 * 60 * 60 * 1000; // 24 hours in milliseconds
 
 function App() {
-  
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.auth);
   const [logout] = useLogoutMutation();
 
   const handleLogout = useCallback(async () => {
     try {
-
       if (!user?.id) return;
       await logout().unwrap();
 
       dispatch(logOut());
-      
     } catch (error) {
       console.error("Failed to logout:", error);
     }
@@ -88,39 +88,40 @@ function App() {
   return (
     <Router>
       <div>
-        <ScrollToTop/>
-      <PrivacyPolicy/>
+        <ScrollToTop />
+        <PrivacyPolicy />
 
-      <Routes>
-        {/* <Route path="/login" element={<LoginSignUpPage />} /> */}
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/signup" element={<SignupPage />} />
-        <Route path="verify-account" element={<VerifyAccount />} />
-        <Route element={<Layout />}>
-          <Route path="/" element={<Home />} />
-          <Route path="about" element={<About />} />
-          <Route path="contact" element={<ContactUs />} />
-          <Route path="careers" element={<Careers />} />
-          <Route path="/apply/:jobTitle" element={<ApplyJobForm />} />
-          <Route path="/forgot-password" element={<ForgotPasswordPage />} />
-          <Route path="/reset-password/:id" element={<ResetPasswordPage />} />
-          <Route path="/landing/:id" element={<LandingPage />} />
-          <Route path="/privacy" element={<PrivacyPolicyPage/>}/>
-          <Route element={<RequireAuth allowedRole={["user", "admin"]} />}>
-            <Route path="/quiz/:id" element={<QuizPage />} />
-            <Route path="/profile" element={<UserProfileLayout />}>
-              <Route index element={<UserProfile />} /> {/* Default route */}
+        <Routes>
+          {/* <Route path="/login" element={<LoginSignUpPage />} /> */}
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/signup" element={<SignupPage />} />
+          <Route path="verify-account" element={<VerifyAccount />} />
+          <Route element={<Layout />}>
+            <Route path="/" element={<Home />} />
+            <Route path="about" element={<About />} />
+            <Route path="contact" element={<ContactUs />} />
+            <Route path="careers" element={<Careers />} />
+            <Route path="apply-job/:id" element={<ApplyJobForm />} />
+            <Route path="mern-program" element={<MernProgramForm />} />
+            <Route path="mern-info" element={<MernProgram />} />
+
+            <Route path="forgot-password" element={<ForgotPasswordPage />} />
+            <Route path="reset-password/:id" element={<ResetPasswordPage />} />
+            <Route path="landing/:id" element={<LandingPage />} />
+            <Route path="privacy" element={<PrivacyPolicyPage />} />
+            <Route element={<RequireAuth allowedRole={["user", "admin"]} />}>
+              <Route path="quiz/:id" element={<QuizPage />} />
+              <Route path="profile" element={<UserProfileLayout />}>
+                <Route index element={<UserProfile />} /> {/* Default route */}
+              </Route>
             </Route>
-          
+
+            <Route path="courses" element={<Courses />} />
+            <Route path="course/:id" element={<CourseDescriptionPage />} />
           </Route>
 
-          <Route path="/courses" element={<Courses />} />
-          <Route path="/course/:id" element={<CourseDescriptionPage />} />
-        </Route>
-
-
-        <Route path="*" element={<PageNotFound />} />
-      </Routes>
+          <Route path="*" element={<PageNotFound />} />
+        </Routes>
       </div>
     </Router>
   );

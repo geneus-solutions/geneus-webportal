@@ -1,18 +1,8 @@
 import JobApplication from "../models/JobApplication.js";
 
-
 export const createJobApplication = async (data, file) => {
-  const {
-    name,
-    email,
-    phone,
-    college,
-    degreeBranch,
-    currentSemester,
-    tenthMarks,
-    twelfthMarks,
-  } = data;
-
+  const { name, email, phone, college, degreeBranch, currentSemester } =
+    data;
 
   if (
     !name ||
@@ -20,11 +10,13 @@ export const createJobApplication = async (data, file) => {
     !phone ||
     !college ||
     !degreeBranch ||
-    !currentSemester ||
-    !tenthMarks ||
-    !twelfthMarks
+    !currentSemester
   ) {
     throw new Error("Missing required fields");
+  }
+
+  if (!file) {
+    throw new Error("Resume file is required");
   }
 
   const application = new JobApplication({
@@ -34,8 +26,9 @@ export const createJobApplication = async (data, file) => {
     college,
     degreeBranch,
     currentSemester,
-    tenthMarks,
-    twelfthMarks,
+    resume: file.buffer,
+    resumeName: file.originalname,
+    resumeMimeType: file.mimetype,
   });
 
   await application.save();

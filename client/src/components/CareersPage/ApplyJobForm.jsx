@@ -2,10 +2,17 @@ import React, { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import axios from "axios";
+import { useGetJobByIdQuery } from "../../features/careers/careersSlice";
 
-const ApplyJobForm = () => {
-  const { jobTitle } = useParams();
+const ApplyJobForm = ({ isMernProgram = false}) => {
   const navigate = useNavigate();
+  const { id } = useParams();
+
+  
+  const { data: job, isLoading, isError } = useGetJobByIdQuery(
+    isMernProgram ? undefined : id,
+    { skip: isMernProgram }
+  );
 
   const [formData, setFormData] = useState({
     name: "",
@@ -14,14 +21,47 @@ const ApplyJobForm = () => {
     college: "",
     degreeBranch: "",
     currentSemester: "",
-    tenthMarks: "",
-    twelfthMarks: "",
     resume: null,
   });
 
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState(false);
+
+
+
+  if (isLoading) {
+    return (
+      <div className="flex justify-center items-center h-[50vh]">
+        <p className="text-lg font-medium">Loading job details...</p>
+      </div>
+    );
+  }
+
+  if (!isMernProgram && (isError || !job)) {
+    return (
+      <div className="flex flex-col items-center justify-center h-[60vh] text-center">
+  <motion.h1
+    initial={{ opacity: 0, y: -30 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.6, type: "spring" }}
+   className="text-7xl font-extrabold bg-gradient-to-r from-blue-500 to-cyan-400 bg-clip-text text-transparent drop-shadow-lg"
+  >
+    404
+  </motion.h1>
+
+  <motion.p
+    initial={{ opacity: 0, y: 20 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ delay: 0.3, duration: 0.6 }}
+    className="text-lg text-gray-600 mt-3"
+  >
+    Job Not Found
+  </motion.p>
+  </div>
+    );
+  }
+
 
   const handleChange = (e) => {
     const { name, value, files } = e.target;
@@ -44,22 +84,10 @@ const ApplyJobForm = () => {
       college,
       degreeBranch,
       currentSemester,
-      tenthMarks,
-      twelfthMarks,
       resume,
     } = formData;
 
-    if (
-      !name ||
-      !phone ||
-      !email ||
-      !college ||
-      !degreeBranch ||
-      !currentSemester ||
-      !tenthMarks ||
-      !twelfthMarks ||
-      !resume
-    ) {
+    if (!name || !phone || !email || !college || !degreeBranch || !currentSemester || !resume) {
       setError("All fields are required");
       return;
     }
@@ -71,23 +99,22 @@ const ApplyJobForm = () => {
     formDataObj.append("college", college);
     formDataObj.append("degreeBranch", degreeBranch);
     formDataObj.append("currentSemester", currentSemester);
-    formDataObj.append("tenthMarks", tenthMarks);
-    formDataObj.append("twelfthMarks", twelfthMarks);
     formDataObj.append("resume", resume);
+    if (!isMernProgram) {
+       formDataObj.append("jobId", id);
+    } else {
+      formDataObj.append("jobId", "mern-program");
+    }
+  
 
     try {
       setLoading(true);
       const backendUrl =
         process.env.REACT_APP_BACKEND_URL || "http://localhost:8000";
+
       const res = await axios.post(
         `${backendUrl}/api/applications/apply`,
-        formDataObj,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        }
-      );
+        formDataObj);
 
       if (res.data.success) {
         setSuccess(true);
@@ -98,8 +125,6 @@ const ApplyJobForm = () => {
           college: "",
           degreeBranch: "",
           currentSemester: "",
-          tenthMarks: "",
-          twelfthMarks: "",
           resume: null,
         });
       }
@@ -117,15 +142,16 @@ const ApplyJobForm = () => {
       animate={{ opacity: 1, y: 0 }}
     >
       <h2 className="text-2xl font-bold mb-6 text-center">
-        Apply for : {decodeURIComponent(jobTitle)}
+        Apply for : {isMernProgram ? "MERN Training + Internship" :job?.title}
       </h2>
 
-      <form
-        onSubmit={handleSubmit}
-        className="space-y-3 max-w-2xl mx-auto text-sm"
-      >
+      <form onSubmit={handleSubmit} className="space-y-3 text-sm">
+        
+        {/* Full Name */}
         <div>
-          <label className="block font-medium mb-1">Full Name</label>
+          <label className="block font-medium mb-1">
+            Full Name <span className="text-red-500">*</span>
+          </label>
           <input
             type="text"
             name="name"
@@ -135,8 +161,11 @@ const ApplyJobForm = () => {
           />
         </div>
 
+        {/* Email */}
         <div>
-          <label className="block font-medium mb-1">Email</label>
+          <label className="block font-medium mb-1">
+            Email <span className="text-red-500">*</span>
+          </label>
           <input
             type="email"
             name="email"
@@ -146,8 +175,11 @@ const ApplyJobForm = () => {
           />
         </div>
 
+        {/* Phone */}
         <div>
-          <label className="block font-medium mb-1">Phone Number</label>
+          <label className="block font-medium mb-1">
+            Phone Number <span className="text-red-500">*</span>
+          </label>
           <input
             type="tel"
             name="phone"
@@ -157,9 +189,12 @@ const ApplyJobForm = () => {
           />
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 w-full items-center">
+        {/* Degree + College */}
+        
           <div>
-            <label className="block font-medium mb-1">Degree</label>
+            <label className="block font-medium mb-1">
+              Degree <span className="text-red-500">*</span>
+            </label>
             <input
               type="text"
               name="degreeBranch"
@@ -170,7 +205,9 @@ const ApplyJobForm = () => {
           </div>
 
           <div>
-            <label className="block font-medium mb-1">College</label>
+            <label className="block font-medium mb-1">
+              College/University <span className="text-red-500">*</span>
+            </label>
             <input
               type="text"
               name="college"
@@ -179,46 +216,27 @@ const ApplyJobForm = () => {
               value={formData.college}
             />
           </div>
-        </div>
+       
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-3 w-full items-center">
-          <div>
-            <label className="block font-medium mb-1">Current Semester</label>
-            <input
-              type="text"
-              name="currentSemester"
-              className="w-full border rounded-lg px-3 py-2"
-              onChange={handleChange}
-              value={formData.currentSemester}
-            />
-          </div>
-
-          <div>
-            <label className="block font-medium mb-1">Tenth Marks(%)</label>
-            <input
-              type="text"
-              name="tenthMarks"
-              className="w-full border rounded-lg px-3 py-2"
-              onChange={handleChange}
-              value={formData.tenthMarks}
-            />
-          </div>
-
-          <div>
-            <label className="block font-medium mb-1">Twelfth Marks(%)</label>
-            <input
-              type="text"
-              name="twelfthMarks"
-              className="w-full border rounded-lg px-3 py-2"
-              onChange={handleChange}
-              value={formData.twelfthMarks}
-            />
-          </div>
-        </div>
-
+        {/* Current Semester */}
         <div>
           <label className="block font-medium mb-1">
-            Upload Resume (PDF/DOC)
+            Current Semester / Graduation Year
+            <span className="text-red-500">*</span>
+          </label>
+          <input
+            type="text"
+            name="currentSemester"
+            className="w-full border rounded-lg px-3 py-2"
+            onChange={handleChange}
+            value={formData.currentSemester}
+          />
+        </div><br></br>
+
+        {/* Resume */}
+        <div>
+          <label className="block font-medium mb-1">
+            Upload Resume (PDF/DOC) <span className="text-red-500">*</span>
           </label>
           <input
             type="file"
@@ -231,11 +249,10 @@ const ApplyJobForm = () => {
 
         {error && <p className="text-red-600 text-sm">{error}</p>}
         {success && (
-          <p className="text-green-600 text-sm">
-            Application sent successfully!
-          </p>
+          <p className="text-green-600 text-sm">Application sent successfully!</p>
         )}
 
+        {/* Buttons */}
         <div className="flex justify-between items-center">
           <motion.button
             whileHover={{ scale: 1.05 }}
@@ -254,6 +271,7 @@ const ApplyJobForm = () => {
           >
             ← Back
           </button>
+
         </div>
       </form>
     </motion.div>
